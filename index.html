@@ -56,7 +56,7 @@
         }
     </style>
 
-    <title>Optimized Route Map</title>
+    <title>User GPS Location Map</title>
 </head>
 
 <body>
@@ -160,7 +160,7 @@
                             image: new ol.style.Circle({
                                 radius: 8,
                                 fill: new ol.style.Fill({
-                                    color: 'rgba(0, 102, 255, 0.9)'
+                                    color: 'rgba(0, 102, 255, 0.95)'
                                 }),
                                 stroke: new ol.style.Stroke({
                                     color: '#ffffff',
@@ -192,18 +192,18 @@
                 },
                 function (error) {
                     if (error.code === 1) {
-                        alert("Location access was denied. Please allow location permission.");
+                        alert("Location access denied. Please allow location permission.");
                     } else if (error.code === 2) {
-                        alert("Location is unavailable.");
+                        alert("Location unavailable.");
                     } else if (error.code === 3) {
                         alert("Location request timed out.");
                     } else {
-                        alert("Unable to get your location.");
+                        alert("Unable to get location.");
                     }
                 },
                 {
                     enableHighAccuracy: true,
-                    timeout: 10000,
+                    timeout: 15000,
                     maximumAge: 0
                 }
             );
