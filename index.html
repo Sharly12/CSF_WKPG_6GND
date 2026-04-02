@@ -121,6 +121,17 @@
     <script src="./resources/qgis2web.js"></script>
 
     <script>
+        var osmBase = new ol.layer.Tile({
+            title: 'OpenStreetMap',
+            type: 'base',
+            visible: true,
+            source: new ol.source.OSM()
+        });
+
+        map.getLayers().insertAt(0, osmBase);
+    </script>
+
+    <script>
         var userLocationLayer = null;
 
         document.getElementById("locateBtn").addEventListener("click", function () {
